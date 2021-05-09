@@ -1,11 +1,20 @@
-// chap 3.3.2 passing props value using component
+// chap 3.3.4 children showing contents between tag
 import React from 'react';
 import MyComponent from './MyComponent'
 const App = () => {
-    return <MyComponent name = "React" />;
+    return <MyComponent>react</MyComponent>
 };
 
 export default App;
+
+// // chap 3.3.2 passing props value using component
+// import React from 'react';
+// import MyComponent from './MyComponent'
+// const App = () => {
+//     return <MyComponent name = "React" />;
+// };
+
+// export default App;
 
 // chap 3.2 module export and import
 // import React from 'react';
