@@ -1,20 +1,49 @@
-// chap 3.3.3 defaultProps setting and 3.3.4 children showing contens between tag
+// chap 3.3.5 비구조화 할당 문법을 통해 props 내부 값 추출
 import React from 'react';
 
-const MyComponent = props => {
-    return <div>
-        hello, my name is {props.name} <br />
-        children value {props.children}
-        .. it is default!
-        </div>
+// const MyComponent = props => {
+//     const { name, children} = props;
+//     return(
+//         <div>
+//             안녕하세요, 제 이름은 {name} 입니다. <br />
+//             children 값은 {children} 
+//             입니다.
+//         </div>
+//     );
+// }; 더 코드 간단하게 하기
 
+const MyComponent = ({name, children}) => {
+    return(
+      <div>
+          안녕하세요, 제 이름은 {name}입니다. <br></br>
+          children 값은 {children}
+          입니다.
+      </div>  
+    );
 };
-
 
 MyComponent.defaultProps = {
-    name: 'yudon lee'
+    name: '기본 이름'
 };
+
 export default MyComponent;
+// // chap 3.3.3 defaultProps setting and 3.3.4 children showing contens between tag
+// import React from 'react';
+
+// const MyComponent = props => {
+//     return <div>
+//         hello, my name is {props.name} <br />
+//         children value {props.children}
+//         .. it is default!
+//         </div>
+
+// };
+
+
+// MyComponent.defaultProps = {
+//     name: 'yudon lee'
+// };
+// export default MyComponent;
 
 // import React from 'react';
 
