@@ -1,8 +1,10 @@
 //chap 3.3.6propTypes를 통한 props 검증
 import React from 'react';
 import MyComponent from './MyComponent'
+import Counter from './Counter'
 const App = () => {
-    return <MyComponent name="React" favoriteNumber={1}>react</MyComponent>
+    // return <MyComponent name="React" favoriteNumber={1}>react</MyComponent>
+    return <Counter />;
 };
 
 export default App;
