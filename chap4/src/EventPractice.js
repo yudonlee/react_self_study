@@ -1,55 +1,122 @@
-// chap4.2.5 onKeyPress 핸들링
-import React, { Component } from 'react';
-class EventPractice extends Component {
-    state = {
-        username:'',
-        message:''
-    }
-    handleChange = (e) => {
-        this.setState({
+import React, { useState } from 'react';
+const EventPractice = () => {
+    // 상태에 객체를 넣기
+    const [form, setForm] = useState({
+        username: '',
+        message: ''
+    });
+    const { username, message } = form;
+    const onChange = e => {
+        const nextForm = {
+            form,
             [e.target.name]: e.target.value
-        });
-    }
-    handleClick = () => {
-        alert(this.state.username + ': ' + this.state.message);
-        this.setState({
+        };
+        setForm(nextForm);
+    };
+    const onClick = () => {
+        alert(username + ': ' + message);
+        setForm({
             username: '',
             message: ''
         });
-    }
-    handleKeyPress = (e) => {
-        if(e.key === 'Enter'){
-            this.handleClick();
+    };
+    const onKeyPress = e => {
+        if  (e.key === 'Enter'){
+            onClick();
         }
-    }
-    render() {
-        return(
-            <div>
-                <h1>이벤트 연습</h1>
-                <input 
-                    type="text"
-                    name="username"
-                    placeholder="사용자명"
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                    onKeyPress={this.handleKeyPress} 
-                    // 여기에 있느냐 없느냐에 따라 첫번쨰 parameter에서 enter칠지가 결정됨 나중에 웹서비스 할떄 유용할듯. 이름만 입력해서는 안되니까, 입력값은 password까지가 default로 작동해야하므로 password에만 이 enter값을 입력받으면 얼마나 좋을까요?
-
-                />
-                <input
-                    type="text"
-                    name="message"
-                    placeholder="아무거나 입력해 보시오"
-                    value={this.state.message}
-                    onChange={this.handleChange}
-                    onKeyPress={this.handleKeyPress}
-                />
-                <button onClick= {this.handleClick}>확인</button>
-            </div>
-        );
-    }
-}
+    };
+    // //chap 4.3 함수형 컴포넌트이지만. 상태에 문자열을 넣은것
+    // const [username, setUsername] = useState('');
+    // const [message, setMessage ] = useState('');
+    // const onChangeUsername = e => setUsername(e.target.value);
+    // const onChangeMessage = e => setMessage(e.target.value);
+    // const onClick = () => {
+        // alert(username + ': ' + message);
+    //     setUsername('');
+    //     setMessage('');
+    // };
+    // const onKeyPress = e => {
+    //     if (e.key === 'Enter') {
+    //         onClick();
+    //     }
+    // };
+    return (
+        <div>
+            <h1>이벤트 연습</h1>
+            <input
+                type="text"
+                name="username"
+                placeholder="사용자명"
+                value={username}
+                onChange={onChange}
+                // onChange={onChangeUsername}
+            />
+            <input
+                type="text"
+                name="message"
+                placeholder="암거나 입력하세용"
+                value={message}
+                onChange = {onChange}
+                // onChange={onChangeMessage}
+                onKeyPress={onKeyPress}
+            />
+            <button onClick={onClick}>확인</button>
+        </div>
+    );
+};
 export default EventPractice;
+// // chap4.2.5 onKeyPress 핸들링
+// import React, { Component } from 'react';
+// class EventPractice extends Component {
+//     state = {
+//         username:'',
+//         message:''
+//     }
+//     handleChange = (e) => {
+//         this.setState({
+//             [e.target.name]: e.target.value
+//         });
+//     }
+//     handleClick = () => {
+//         alert(this.state.username + ': ' + this.state.message);
+//         this.setState({
+//             username: '',
+//             message: ''
+//         });
+//     }
+//     handleKeyPress = (e) => {
+//         if(e.key === 'Enter'){
+//             this.handleClick();
+//         }
+//     }
+//     render() {
+//         return(
+//             <div>
+//                 <h1>이벤트 연습</h1>
+//                 <input 
+//                     type="text"
+//                     name="username"
+//                     placeholder="사용자명"
+//                     value={this.state.username}
+//                     onChange={this.handleChange}
+//                     onKeyPress={this.handleKeyPress} 
+//                     // 여기에 있느냐 없느냐에 따라 첫번쨰 parameter에서 enter칠지가 결정됨 나중에 웹서비스 할떄 유용할듯. 이름만 입력해서는 안되니까, 입력값은 password까지가 default로 작동해야하므로 password에만 이 enter값을 입력받으면 얼마나 좋을까요?
+
+//                 />
+//                 <input
+//                     type="text"
+//                     name="message"
+//                     placeholder="아무거나 입력해 보시오"
+//                     value={this.state.message}
+//                     onChange={this.handleChange}
+//                     onKeyPress={this.handleKeyPress}
+//                 />
+//                 <button onClick= {this.handleClick}>확인</button>
+//             </div>
+//         );
+//     }
+// }
+// export default EventPractice;
 // // chap4.2.4 input 여러개 다루기 
 // import React, { Component } from 'react';
 // class EventPractice extends Component {
