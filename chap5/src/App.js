@@ -1,10 +1,17 @@
-import { Component } from 'react';
-import logo from './logo.svg';
-import ValidationSample from './ValidationSample';
+import React, { Component } from 'react';
+import ScrollBox from './ScrollBox'
+// import logo from './logo.svg';
+// import ValidationSample from './ValidationSample';
 class App extends Component {
   render() {
     return (
-      <ValidationSample/>
+      <div>
+        <ScrollBox ref= {(ref) => this.scrollbox=ref}/>
+        <buton onClick={() => this.scrollbox.scrollToBottom()}>
+          맨밑으로!
+        </buton>
+      </div>
+      // <ValidationSample/>
     );
   }
 }
