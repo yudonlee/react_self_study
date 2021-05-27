@@ -1,5 +1,5 @@
+// chapter 8.2.3
 import React, { useEffect, useState } from 'react';
-
 const Info = () => {
     const [name, setName] = useState('');
     const [nickname, setNickname] = useState('');
