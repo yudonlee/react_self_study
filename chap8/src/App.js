@@ -4,8 +4,8 @@ import Info from './Info';
 // import Counter from './Counter';
 
 const App = () => {
-  return <Counter />
-  // return <Info />;
+  // return <Counter />
+  return <Info />;
   // const [visible, setVisible] = useState(false);
   // return (
   //   <div>

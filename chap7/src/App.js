@@ -10,7 +10,7 @@ class App extends Component {
   state ={
     color: '#00000'
   }
-
+ 
   handleClick = () => {
     this.setState({
       color: getRandomColor()
