@@ -4,8 +4,8 @@ import Info from './Info';
 import Average from './Average'
 const App = () => {
   // return <Counter />
-  // return <Info />;
-  return <Average />;
+  return <Info />;
+  // return <Average />;
   // const [visible, setVisible] = useState(false);
   // return (
   //   <div>
