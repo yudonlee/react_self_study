@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+import Categories from './components/Categories';
 // import React, { useState } from 'react';
 // import axios from 'axios';
 import NewsList from './components/NewsList';
 
 const App = () => {
-  return <NewsList />;
+  const [category, setCategory] = useState('all');
+  const onSelect = useCallback((category) => setCategory(category), []);
+  return (
+    <>
+      <Categories category={category} onSelect={onSelect} />
+      <NewsList category={category} />
+      <NewsList />
+    </>
+  );
 };
-// const App = () => {
+
+{
+  /* // const App = () => {
 //   const [data, setData] = useState(null);
 //   const onClick = async () => {
 //     try {
@@ -33,6 +44,7 @@ const App = () => {
 //       {data && <textarea rows={7} value={JSON.stringify(data, null, 2)} />}
 //     </div>
 //   );
-// };
+// }; */
+}
 
 export default App;
