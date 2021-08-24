@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 const categories = [
   {
@@ -28,7 +28,7 @@ const categories = [
   },
 ];
 
-const CategoriesBlock = styled(NavLink)`
+const CategoriesBlock = styled.div`
   display: flex;
   padding: 1rem;
   width: 400;
@@ -38,7 +38,7 @@ const CategoriesBlock = styled(NavLink)`
     overflow-x: auto;
   }
 `;
-const Category = styled.div`
+const Category = styled(NavLink)`
   font-size: 1.125rem;
   cursor: pointer;
   white-space: pre;
@@ -58,11 +58,12 @@ const Category = styled.div`
       color: #3bc93b;
     }
   }
+
   & + & {
     margin-left: 1rem;
   }
 `;
-const Categories = ({ onSelect, category }) => {
+const Categories = () => {
   return (
     <CategoriesBlock>
       {categories.map((c) => (
