@@ -1,23 +1,28 @@
-import React, { useState, useCallback } from 'react';
-import Categories from './components/Categories';
+// import Categories from './components/Categories';
 // import React, { useState } from 'react';
 // import axios from 'axios';
-import NewsList from './components/NewsList';
+// import NewsList from './components/NewsList';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import NewsPage from './pages/NewsPage';
 
 const App = () => {
-  const [category, setCategory] = useState('all');
-  const onSelect = useCallback((category) => setCategory(category), []);
-  return (
-    <>
-      <Categories category={category} onSelect={onSelect} />
-      <NewsList category={category} />
-      <NewsList />
-    </>
-  );
+  return <Route path="/:category?" component={NewsPage} />;
 };
 
-{
-  /* // const App = () => {
+// const App = () => {
+//   const [category, setCategory] = useState('all');
+//   const onSelect = useCallback((category) => setCategory(category), []);
+//   return (
+//     <>
+//       <Categories category={category} onSelect={onSelect} />
+//       <NewsList category={category} />
+//       <NewsList />
+//     </>
+//   );
+// };
+
+/* // const App = () => {
 //   const [data, setData] = useState(null);
 //   const onClick = async () => {
 //     try {
@@ -45,6 +50,5 @@ const App = () => {
 //     </div>
 //   );
 // }; */
-}
 
 export default App;

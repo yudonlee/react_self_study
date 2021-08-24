@@ -23,13 +23,14 @@ const NewsListBlock = styled.div`
 //   urlToImage: 'https://via.placeholder.com/160',
 // };
 
-const NewsList = () => {
+const NewsList = ({ category }) => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
+        const query = category === 'all' ? '' : `&category=${category}`;
         const response = await axios.get(
           'https://newsapi.org/v2/top-headlines?country=kr&apiKey=bcd006b4095f4755b34573b21ee2c0c9',
         );
@@ -40,7 +41,7 @@ const NewsList = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [category]);
   if (loading) {
     return <NewsListBlock>대기중 ...</NewsListBlock>;
   }
